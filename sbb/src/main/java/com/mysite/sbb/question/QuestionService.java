@@ -56,5 +56,10 @@ public class QuestionService {
 	public void delete(Question question) {
 		this.questionRepositroy.delete(question);
 	}
+	
+	public void vote(Question question, SiteUser siteUser) {
+		question.getVoter().add(siteUser);
+		this.questionRepositroy.save(question);
+	}
 
 }
